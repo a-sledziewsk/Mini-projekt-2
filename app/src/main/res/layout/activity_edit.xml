@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_price_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="5"
+        android:layout_column="0"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_price_hint"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/edit_price_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:text="@string/add_price_label"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/edit_product_name_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:text="@string/add_product_name_label"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_product_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:ems="10"
+        android:hint="@string/enter_product_name_hint"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/edit_quantity_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:text="@string/add_quantity_label"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_quantity_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:ems="10"
+        android:hint="@string/enter_quanitity_hint"
+        android:importantForAutofill="no"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/edit_to_list_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="25"
+        android:layout_column="0"
+        android:onClick="editProductDetailsClick"
+        android:text="@string/edit_product" />
+
+    <CheckBox
+        android:id="@+id/edit_product_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="23"
+        android:layout_column="0"
+        android:text="@string/add_prod_bought_checkbox" />
+
+
+</GridLayout>
