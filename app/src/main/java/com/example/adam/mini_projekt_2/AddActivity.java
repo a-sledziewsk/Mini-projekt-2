@@ -38,6 +38,9 @@ public class AddActivity extends Activity {
     private TextView priceTextView;
     DBAdapter myDB;
 
+    public static final String myIntent = "com.example.adam.mini_projekt_2";
+    private MyBroadcastReceiver mbr = new MyBroadcastReceiver();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -57,6 +60,17 @@ public class AddActivity extends Activity {
 
         openDB();
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerReceiver(mbr, new IntentFilter(myIntent));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mbr);
+    }
 
     private void openDB(){
         myDB = new DBAdapter(this);
@@ -73,8 +87,16 @@ public class AddActivity extends Activity {
             myDB.insertRow(productName, Integer.parseInt(quantity), Float.parseFloat(price), boughtBoolean);
             Intent returnToListActivity = new Intent(this, ListActivity.class);
 
-            NotificationHelper notify = new NotificationHelper(this);
-            notify.createNotification("New product added!","Tttut");
+            Intent broadcastIntent = new Intent();
+            broadcastIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            broadcastIntent.setAction("com.example.adam.mini_projekt_2");
+
+            broadcastIntent.putExtra("Product name", productName);
+            broadcastIntent.putExtra("Quantity", quantity);
+            broadcastIntent.putExtra("Price", price);
+
+            sendBroadcast(broadcastIntent);
+
 
             startActivity(returnToListActivity);
 
